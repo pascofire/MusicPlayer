@@ -4,11 +4,15 @@ public class Song {
      String album;
      int duration;
 
-    public Song(String title, String artist, String album, int duration) {
+    public Song(String title, String artist, int duration) {
+        this.duration = duration;
         this.title = title;
         this.artist = artist;
+    }
+
+    public Song(String title, String artist, String album, int duration) {
+        this(title, artist, duration);
         this.album = album;
-        this.duration = duration;
     }
 
     public String getTitle() {

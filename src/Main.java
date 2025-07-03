@@ -1,12 +1,18 @@
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.printf("Hello and welcome!");
+        Song s1 = new Song("blue","abc",123);
+        ArrayList<Song> songs = new ArrayList<>();
+        songs.add(s1);
 
-        for (int i = 1; i <= 5; i++) {
+    Album album= new Album ("playlist 1",songs);
 
-            System.out.println("i = " + i);
-        }
+    album.addSong("goosebumps","Travis scott", 210);
+    album.addSong("butterfly effect","Travis", 210);
+    album.addSong("butterfly effect","Travis", 210);
+
+
     }
 }

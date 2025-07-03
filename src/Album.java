@@ -2,12 +2,48 @@ import java.util.ArrayList;
 
 public class Album {
     private String name;
-    private String artist;
+
     private ArrayList<Song> songs;
 
-    public Album(String name, String artist, ArrayList<Song> songs) {
+    public Album (String name) {
         this.name = name;
-        this.artist = artist;
+
+    }
+    public Album(String name, ArrayList<Song> songs) {
+       this(name);
         this.songs = songs;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Song> getSongs() {
+        return songs;
+    }
+
+    public Song findSong(String id) {
+       if(songs == null) {
+           return null;
+       }
+        for (Song song : songs) {
+            if(song.getTitle().equals(id)) {
+                return song;
+            }
+
+        }
+        return null;
+    }
+
+    public void addSong(String title, String artist, int durations) {
+       if(findSong(title) == null) {
+           Song newSong = new Song(title, artist, durations);
+           songs.add(newSong);
+           System.out.println("Song added: " + newSong.getTitle());
+       }
+       else {
+           System.out.println("Song already exists: " + title);
+       }
+
+
     }
 }
