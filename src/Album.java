@@ -1,5 +1,6 @@
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Collections;
+
 
 public class Album {
     private String name;
@@ -8,6 +9,7 @@ public class Album {
     //constructors
     public Album (String name) {
         this.name = name;
+        this.songs = new ArrayList<>();
     }
     public Album(String name, ArrayList<Song> songs) {
        this(name);
@@ -49,16 +51,17 @@ public class Album {
     }
 
     public void remix()
-    { Random rand = new Random();
-        try{
-        while(true){
-            int index = rand.nextInt(songs.size());
-            Song song = songs.get(index);
+    {if (songs == null || songs.isEmpty()) {
+        System.out.println("No songs to play.");
+        return;
+    }
+
+        Collections.shuffle(songs);  // Random order
+
+        for (Song song : songs) {
+            System.out.println("Now playing: " + song.getTitle());
             Player player = new Player(song.getPath());
-            player.playAudio();
-        }}
-        catch(Exception e){
-            System.out.println(e);
+            player.playAudio();  // User presses Q to go to next song
         }
     }
 }

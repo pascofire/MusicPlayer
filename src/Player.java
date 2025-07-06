@@ -32,7 +32,7 @@ public class Player {
                     case "Q" -> clip.close();
                     default -> System.out.println("Invalid input");
                 }
-                clip.loop(Clip.LOOP_CONTINUOUSLY);
+
             }
         } catch (UnsupportedAudioFileException e) {
             System.out.println("Unsupported audio file.");
