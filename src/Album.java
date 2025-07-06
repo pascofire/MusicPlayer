@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Album {
     private String name;
@@ -45,5 +46,19 @@ public class Album {
        }
 
 
+    }
+
+    public void remix()
+    { Random rand = new Random();
+        try{
+        while(true){
+            int index = rand.nextInt(songs.size());
+            Song song = songs.get(index);
+            Player player = new Player(song.getPath());
+            player.playAudio();
+        }}
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 }

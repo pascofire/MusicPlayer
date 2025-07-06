@@ -20,6 +20,7 @@ public class Player {
 
             String response = "";
 
+            clip.start();
             while (!response.equals("Q")) {
                 System.out.println("P to play, S to stop, R to restart, Q to quit: ");
                 response = scan.nextLine().toUpperCase();
@@ -31,6 +32,7 @@ public class Player {
                     case "Q" -> clip.close();
                     default -> System.out.println("Invalid input");
                 }
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
             }
         } catch (UnsupportedAudioFileException e) {
             System.out.println("Unsupported audio file.");
