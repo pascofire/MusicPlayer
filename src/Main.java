@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Main {
@@ -14,14 +15,16 @@ public class Main {
     album.addSong("loco contigo","DJ snake", 351,"E:\\folders\\musicplayer\\localsongs\\Loco Contigo.mp3");
     album.addSong("Von-dutch","Travis scott", 210,"E:\\playlist\\Von-dutch.wav");
     album.addSong("The-Less-I-Know-The-Better","Travis scott", 210,"E:\\playlist\\The-Less-I-Know-The-Better.wav");
-        album.addSong("Let-It-Happen","Travis scott", 210,"E:\\playlist\\Let-It-Happen.wav\\");
-        album.addSong("HIGHEST-IN-THE-ROOM","Travis scott", 210,"E:\\playlist\\HIGHEST-IN-THE-ROOM.wav");
-        album.addSong("Cheri Cheri Lady","Travis scott", 210,"E:\\playlist\\Cheri-Cheri-Lady.wav");
-        album.addSong("Con-Calma","Travis scott", 210,"E:\\playlist\\Con-Calma.wav");
+    album.addSong("Let-It-Happen","Travis scott", 210,"E:\\playlist\\Let-It-Happen.wav\\");
+    album.addSong("HIGHEST-IN-THE-ROOM","Travis scott", 210,"E:\\playlist\\HIGHEST-IN-THE-ROOM.wav");
+    album.addSong("Cheri Cheri Lady","Travis scott", 210,"E:\\playlist\\Cheri-Cheri-Lady.wav");
+    album.addSong("Con-Calma","Travis scott", 210,"E:\\playlist\\Con-Calma.wav");
+
+    JFrame frame = new JFrame();
+    frame.setVisible(true);
+    frame.setSize(800,600);
 
         album.remix();
 
-    }
 
-
-}
+}}

@@ -51,17 +51,21 @@ public class Album {
     }
 
     public void remix()
-    {if (songs == null || songs.isEmpty()) {
+    {
+    	if (songs == null || songs.isEmpty()) {
         System.out.println("No songs to play.");
         return;
-    }
+    	}
 
         Collections.shuffle(songs);  // Random order
-
+               
+        
         for (Song song : songs) {
+        
             System.out.println("Now playing: " + song.getTitle());
             Player player = new Player(song.getPath());
-            player.playAudio();  // User presses Q to go to next song
+            player.start();// User presses Q to go to next song
+        	
         }
     }
 }

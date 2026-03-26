@@ -3,13 +3,16 @@ import java.io.IOException;
 import java.util.Scanner;
 import javax.sound.sampled.*;
 
-public class Player {
+public class Player extends Thread {
     String path;
 
     public Player(String path) {
         this.path = path;
     }
-
+    @Override
+    public void run(){
+    	playAudio();
+    }
     public void playAudio() {
         try (
                 Scanner scan = new Scanner(System.in);
@@ -19,8 +22,7 @@ public class Player {
             clip.open(audioStream);
 
             String response = "";
-
-            clip.start();
+            boolean x= false;
             while (!response.equals("Q")) {
                 System.out.println("P to play, S to stop, R to restart, Q to quit: ");
                 response = scan.nextLine().toUpperCase();
@@ -31,8 +33,13 @@ public class Player {
                     case "R" -> clip.setMicrosecondPosition(0);
                     case "Q" -> clip.close();
                     default -> System.out.println("Invalid input");
-                }
-
+                   } 
+                clip.addLineListener(event -> {
+                        if (event.getType() == LineEvent.Type.STOP) {
+                            clip.close();
+                        }
+                 });
+                
             }
         } catch (UnsupportedAudioFileException e) {
             System.out.println("Unsupported audio file.");
